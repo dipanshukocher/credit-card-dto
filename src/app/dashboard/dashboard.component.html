@@ -1,0 +1,78 @@
+<div class="dashboard-wrapper">
+    <h4 *ngIf="returnData">Thank you {{returnData.cardHolderName}}. Amount of Rupees {{returnData.amount}} is submitted.
+        Transaction id: {{returnData.id}} </h4>
+ 
+    <div class="credit-card-wrapper">
+        <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+            <div class="credit-card-front-back-main">
+                <div class="credit-card front">
+                    <div class="card-title">CREDIT CARD</div>
+                    <img src="assets/images/transparent-credit-card.png" class="card-image" alt="providers">
+                    <div class="card-number">
+                        <div class="card-number-label text-small">CARD NUMBER</div>
+                        <div class="card-numbers" formGroupName="cardNumber">
+                            <input type="text" placeholder="XXXX" (keypress)="checkLength($event, 4)"
+                                class="tbx-number-0" formControlName="cardNum1">
+                            <input type="text" placeholder="XXXX" (keypress)="checkLength($event, 4)"
+                                class="tbx-number-1" formControlName="cardNum2">
+                            <input type="text" placeholder="XXXX" (keypress)="checkLength($event, 4)"
+                                class="tbx-number-2" formControlName="cardNum3">
+                            <input type="text" placeholder="XXXX" (keypress)="checkLength($event, 4)"
+                                class="tbx-number-3" formControlName="cardNum4">
+                        </div>
+
+                    </div>
+
+                    <div class="card-expiration">
+                        <div class="card-expiration-label">
+                            <div class="text-small">VALID</div>
+                            <div class="text-small">THRU</div>
+                        </div>
+                        <div class="card-expiration-month">
+                            <div class="card-expiration-month-label text-small">MONTH</div>
+                            <select class="drp-expiration-month" formControlName="expiryMonth">
+                                <option *ngFor="let month of expiryMonths" [ngValue]="month">{{ month }}</option>
+                            </select>
+                        </div>
+                        <div class="card-expiration-slash">/</div>
+                        <div class="card-expiration-year">
+                            <div class="card-expiration-year-label text-small">YEAR</div>
+                            <select class="drp-expiration-year" formControlName="expiryYear" style="width: 100px;">
+                                <option *ngFor="let year of expiryYears" [ngValue]="year">{{ year }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-holder">
+                        <div class="card-holder-label text-small">CARD HOLDER</div>
+                        <div class="card-number-name">
+                            <input type="text" placeholder="Card Holder Name" class="tbx-number-0"
+                                formControlName="cardHolderName">
+                        </div>
+                    </div>
+                </div>
+                <div class="credit-card back unfocused">
+                    <div class="magnetic-strip"></div>
+                    <div class="credit-card-ccv">
+                        <div class="credit-card-ccv-label">CVV CODE</div>
+                        <div class="credit-card-ccv-strip">
+                            <div class="credit-card-ccv-box"></div>
+                            <input type="text" class="tbx-ccv" maxlength="3" formControlName="cardCVV">
+                            <div class="credit-card-ccv-prefix">XXXX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="amount">
+                <div class="credit-card-amount">
+                    <div class="credit-card-amount-label">Amount </div>
+                    <div class="credit-card-amount-data">
+                        <input type="number" placeholder="Amount" (keypress)="checkLength($event, 10)" class="tbx-ccv"
+                            formControlName="amount">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="form-submit-button" [disabled]="!creditCardForm.valid">Submit</button>
+        </form>
+    </div>
+</div>

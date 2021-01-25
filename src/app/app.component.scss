@@ -1,0 +1,38 @@
+.header {
+    background-color: #2a57aa;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    .app-title {
+        margin-bottom: 0px;
+    }
+    .nav {
+        margin-left: 0px;
+        padding-left: 0px;
+        list-style-type: none;
+        margin: 0;
+        display: flex;
+        .nav-item {
+            margin: 5px 15px;
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+    }
+}
+
+.developed-by {
+    position: fixed;
+    background: #2a3339;
+    color: #fff;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    h2 {
+        margin-bottom: 0px;
+        font-weight: 300;
+        font-size: 14px;
+    }
+}

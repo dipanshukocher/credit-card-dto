@@ -1,0 +1,17 @@
+<div class="container-main">
+    <div class="container-main-wrapper"> 
+        <div class="header">
+            <h1 class="app-title">Credit Card DTO</h1>
+            <ul class="nav">
+                <li><a routerLink="/home" class="nav-item" routerLinkActive="active">Home</a></li>
+                <li><a routerLink="/dashboard" class="nav-item" routerLinkActive="active">Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="developed-by">
+        <h2 class="">Developed by: <span [innerHTML]="developerName"></span></h2>
+    </div> 
+</div>
